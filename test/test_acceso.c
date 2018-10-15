@@ -47,4 +47,11 @@ void test_TurnOnGpioByTimeCondition(){
 	TEST_ASSERT_EQUAL_HEX16(0,gpioVirtuales);	
 }
 
+void test_ValidatePassword(){
+	char password[4]={1,2,3,4};
+	char flag;
+	flag=ValidatePassword(password);
+	TEST_ASSERT_EQUAL(1,flag);	
+}
+
 

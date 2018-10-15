@@ -18,12 +18,15 @@
 - :test: test_TurnOnGpioByTimeCondition
   :line: 37
   :message: ''
+- :test: test_ValidatePassword
+  :line: 50
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 5
-  :passed: 5
+  :total: 6
+  :passed: 6
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0032683270001143683
+:time: 0.0026725809984782245

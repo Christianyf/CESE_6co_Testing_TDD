@@ -40,6 +40,7 @@ extern void test_TurnOnGpioCero(void);
 extern void test_TurnOffGpioCero(void);
 extern void test_TimeCondition();
 extern void test_TurnOnGpioByTimeCondition();
+extern void test_ValidatePassword();
 
 
 /*=======Suite Setup=====*/
@@ -79,6 +80,7 @@ int main(void)
   RUN_TEST(test_TurnOffGpioCero, 23);
   RUN_TEST(test_TimeCondition, 30);
   RUN_TEST(test_TurnOnGpioByTimeCondition, 37);
+  RUN_TEST(test_ValidatePassword, 50);
 
   return suite_teardown(UnityEnd());
 }

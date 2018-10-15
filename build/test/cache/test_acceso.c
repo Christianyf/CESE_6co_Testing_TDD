@@ -120,3 +120,21 @@ void test_TurnOnGpioByTimeCondition(){
 ), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_HEX16);
 
 }
+
+
+
+void test_ValidatePassword(){
+
+ char password[4]={1,2,3,4};
+
+ char flag;
+
+ flag=ValidatePassword(password);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((flag)), (
+
+((void *)0)
+
+), (UNITY_UINT)(54), UNITY_DISPLAY_STYLE_INT);
+
+}
