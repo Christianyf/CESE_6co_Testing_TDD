@@ -20,5 +20,12 @@ void test_TurnOnGpioCero(void){
 	TEST_ASSERT_EQUAL_HEX16(1,gpioVirtuales);
 }
 
+void test_TurnOffGpioCero(void){
+	int gpioVirtuales;
+	Gpio_Create(&gpioVirtuales);
+	Gpio_TurnOff();
+	TEST_ASSERT_EQUAL_HEX16(0,gpioVirtuales);
+}
+
 
 

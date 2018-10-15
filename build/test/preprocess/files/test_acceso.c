@@ -46,3 +46,21 @@ void test_TurnOnGpioCero(void){
 ), (UNITY_UINT)(20), UNITY_DISPLAY_STYLE_HEX16);
 
 }
+
+
+
+void test_TurnOffGpioCero(void){
+
+ int gpioVirtuales;
+
+ Gpio_Create(&gpioVirtuales);
+
+ Gpio_TurnOff();
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0)), (UNITY_INT)(UNITY_INT16)((gpioVirtuales)), (
+
+((void *)0)
+
+), (UNITY_UINT)(27), UNITY_DISPLAY_STYLE_HEX16);
+
+}

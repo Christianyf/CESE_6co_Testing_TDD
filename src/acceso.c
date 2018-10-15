@@ -1,13 +1,20 @@
 #include "acceso.h"
 
+#define ON  1
+#define OFF 0
+
 static int * puerto;
 
 void Gpio_Create(int *direccion){
 	puerto=direccion;
-	*puerto = 0;
+	*puerto = OFF;
 }
 
 void Gpio_TurnOn(void){
-	*puerto=1;
+	*puerto=ON;
+}
+
+void Gpio_TurnOff(void){
+	*puerto=OFF;
 }
 

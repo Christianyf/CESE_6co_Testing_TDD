@@ -37,6 +37,7 @@ extern void setUp(void);
 extern void tearDown(void);
 extern void test_GpioOffAfterCreate(void);
 extern void test_TurnOnGpioCero(void);
+extern void test_TurnOffGpioCero(void);
 
 
 /*=======Suite Setup=====*/
@@ -73,6 +74,7 @@ int main(void)
   UnityBegin("test_acceso.c");
   RUN_TEST(test_GpioOffAfterCreate, 10);
   RUN_TEST(test_TurnOnGpioCero, 16);
+  RUN_TEST(test_TurnOffGpioCero, 23);
 
   return suite_teardown(UnityEnd());
 }
