@@ -34,5 +34,17 @@ void test_TimeCondition(){
 	TEST_ASSERT_EQUAL(1,flag);
 }
 
+void test_TurnOnGpioByTimeCondition(){
+	int gpioVirtuales;
+	char flag;
+	int time=0xffff;
+	TEST_ASSERT_EQUAL_HEX16(0,gpioVirtuales);
+	Gpio_Create(&gpioVirtuales);
+	Gpio_TurnOn();
+	TEST_ASSERT_EQUAL_HEX16(1,gpioVirtuales);
+	flag=DelayTime(time);
+	Gpio_TurnOff();
+	TEST_ASSERT_EQUAL_HEX16(0,gpioVirtuales);	
+}
 
 

@@ -82,3 +82,41 @@ void test_TimeCondition(){
 ), (UNITY_UINT)(34), UNITY_DISPLAY_STYLE_INT);
 
 }
+
+
+
+void test_TurnOnGpioByTimeCondition(){
+
+ int gpioVirtuales;
+
+ char flag;
+
+ int time=0xffff;
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0)), (UNITY_INT)(UNITY_INT16)((gpioVirtuales)), (
+
+((void *)0)
+
+), (UNITY_UINT)(41), UNITY_DISPLAY_STYLE_HEX16);
+
+ Gpio_Create(&gpioVirtuales);
+
+ Gpio_TurnOn();
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((1)), (UNITY_INT)(UNITY_INT16)((gpioVirtuales)), (
+
+((void *)0)
+
+), (UNITY_UINT)(44), UNITY_DISPLAY_STYLE_HEX16);
+
+ flag=DelayTime(time);
+
+ Gpio_TurnOff();
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0)), (UNITY_INT)(UNITY_INT16)((gpioVirtuales)), (
+
+((void *)0)
+
+), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_HEX16);
+
+}
