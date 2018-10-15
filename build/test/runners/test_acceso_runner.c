@@ -41,6 +41,7 @@ extern void test_TurnOffGpioCero(void);
 extern void test_TimeCondition();
 extern void test_TurnOnGpioByTimeCondition();
 extern void test_ValidatePassword();
+extern void test_TurnOnGpioByPasswordCondition();
 
 
 /*=======Suite Setup=====*/
@@ -77,10 +78,11 @@ int main(void)
   UnityBegin("test_acceso.c");
   RUN_TEST(test_GpioOffAfterCreate, 10);
   RUN_TEST(test_TurnOnGpioCero, 16);
-  RUN_TEST(test_TurnOffGpioCero, 23);
-  RUN_TEST(test_TimeCondition, 30);
-  RUN_TEST(test_TurnOnGpioByTimeCondition, 37);
-  RUN_TEST(test_ValidatePassword, 50);
+  RUN_TEST(test_TurnOffGpioCero, 22);
+  RUN_TEST(test_TimeCondition, 28);
+  RUN_TEST(test_TurnOnGpioByTimeCondition, 35);
+  RUN_TEST(test_ValidatePassword, 44);
+  RUN_TEST(test_TurnOnGpioByPasswordCondition, 51);
 
   return suite_teardown(UnityEnd());
 }

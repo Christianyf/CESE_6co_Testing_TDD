@@ -11,11 +11,13 @@ void Gpio_Create(int *direccion){
 	*puerto = OFF;
 }
 
-void Gpio_TurnOn(void){
+void Gpio_TurnOn(int *direccion){
+	puerto=direccion;
 	*puerto=ON;
 }
 
-void Gpio_TurnOff(void){
+void Gpio_TurnOff(int *direccion){
+	puerto=direccion;
 	*puerto=OFF;
 }
 
@@ -26,6 +28,14 @@ char DelayTime(int time){
 			
 	}
 	return 1;
+}
+
+void EnableGpio(){
+	int gpioVirtuales;
+	int time=0xffff;
+	Gpio_TurnOn(&gpioVirtuales);
+	DelayTime(time);
+	Gpio_TurnOff(&gpioVirtuales);	
 }
 
 char ValidatePassword(char *password){
@@ -42,5 +52,17 @@ char ValidatePassword(char *password){
 		return 1;
 	}else 
 		return 2;	
+}
+
+char acceso(char *password){
+	
+	int time=0xffff;
+	int gpioVirtuales;
+	
+	if(ValidatePassword(password)==1){
+		EnableGpio();
+		return 1;
+	}else
+		return 2;
 }
 

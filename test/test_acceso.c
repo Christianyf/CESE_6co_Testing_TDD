@@ -14,16 +14,14 @@ void test_GpioOffAfterCreate(void){
 }
 
 void test_TurnOnGpioCero(void){
-	int gpioVirtuales;
-	Gpio_Create(&gpioVirtuales);
-	Gpio_TurnOn();
+	int gpioVirtuales=0;
+	Gpio_TurnOn(&gpioVirtuales);
 	TEST_ASSERT_EQUAL_HEX16(1,gpioVirtuales);
 }
 
 void test_TurnOffGpioCero(void){
-	int gpioVirtuales;
-	Gpio_Create(&gpioVirtuales);
-	Gpio_TurnOff();
+	int gpioVirtuales=0xFFFF;
+	Gpio_TurnOff(&gpioVirtuales);
 	TEST_ASSERT_EQUAL_HEX16(0,gpioVirtuales);
 }
 
@@ -35,15 +33,11 @@ void test_TimeCondition(){
 }
 
 void test_TurnOnGpioByTimeCondition(){
-	int gpioVirtuales;
 	char flag;
-	int time=0xffff;
-	TEST_ASSERT_EQUAL_HEX16(0,gpioVirtuales);
-	Gpio_Create(&gpioVirtuales);
-	Gpio_TurnOn();
-	TEST_ASSERT_EQUAL_HEX16(1,gpioVirtuales);
-	flag=DelayTime(time);
-	Gpio_TurnOff();
+	int gpioVirtuales;
+	
+	EnableGpio();
+
 	TEST_ASSERT_EQUAL_HEX16(0,gpioVirtuales);	
 }
 
@@ -52,6 +46,14 @@ void test_ValidatePassword(){
 	char flag;
 	flag=ValidatePassword(password);
 	TEST_ASSERT_EQUAL(1,flag);	
+}
+
+void test_TurnOnGpioByPasswordCondition(){
+	char password[4]={1,2,3,4};
+	char flag;
+
+	flag=acceso(password);
+	TEST_ASSERT_EQUAL(1,flag);
 }
 
 

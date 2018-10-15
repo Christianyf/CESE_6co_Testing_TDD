@@ -33,17 +33,15 @@ void test_GpioOffAfterCreate(void){
 
 void test_TurnOnGpioCero(void){
 
- int gpioVirtuales;
+ int gpioVirtuales=0;
 
- Gpio_Create(&gpioVirtuales);
-
- Gpio_TurnOn();
+ Gpio_TurnOn(&gpioVirtuales);
 
  UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((1)), (UNITY_INT)(UNITY_INT16)((gpioVirtuales)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(20), UNITY_DISPLAY_STYLE_HEX16);
+), (UNITY_UINT)(19), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -51,17 +49,15 @@ void test_TurnOnGpioCero(void){
 
 void test_TurnOffGpioCero(void){
 
- int gpioVirtuales;
+ int gpioVirtuales=0xFFFF;
 
- Gpio_Create(&gpioVirtuales);
-
- Gpio_TurnOff();
+ Gpio_TurnOff(&gpioVirtuales);
 
  UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0)), (UNITY_INT)(UNITY_INT16)((gpioVirtuales)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(27), UNITY_DISPLAY_STYLE_HEX16);
+), (UNITY_UINT)(25), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -79,7 +75,7 @@ void test_TimeCondition(){
 
 ((void *)0)
 
-), (UNITY_UINT)(34), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(32), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -87,37 +83,21 @@ void test_TimeCondition(){
 
 void test_TurnOnGpioByTimeCondition(){
 
- int gpioVirtuales;
-
  char flag;
 
- int time=0xffff;
+ int gpioVirtuales;
+
+
+
+ EnableGpio();
+
+
 
  UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0)), (UNITY_INT)(UNITY_INT16)((gpioVirtuales)), (
 
 ((void *)0)
 
 ), (UNITY_UINT)(41), UNITY_DISPLAY_STYLE_HEX16);
-
- Gpio_Create(&gpioVirtuales);
-
- Gpio_TurnOn();
-
- UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((1)), (UNITY_INT)(UNITY_INT16)((gpioVirtuales)), (
-
-((void *)0)
-
-), (UNITY_UINT)(44), UNITY_DISPLAY_STYLE_HEX16);
-
- flag=DelayTime(time);
-
- Gpio_TurnOff();
-
- UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0)), (UNITY_INT)(UNITY_INT16)((gpioVirtuales)), (
-
-((void *)0)
-
-), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -135,6 +115,26 @@ void test_ValidatePassword(){
 
 ((void *)0)
 
-), (UNITY_UINT)(54), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(48), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_TurnOnGpioByPasswordCondition(){
+
+ char password[4]={1,2,3,4};
+
+ char flag;
+
+
+
+ flag=acceso(password);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((flag)), (
+
+((void *)0)
+
+), (UNITY_UINT)(56), UNITY_DISPLAY_STYLE_INT);
 
 }
