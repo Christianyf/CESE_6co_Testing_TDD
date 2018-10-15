@@ -18,3 +18,12 @@ void Gpio_TurnOff(void){
 	*puerto=OFF;
 }
 
+char DelayTime(int time){
+	int i=0;
+	for (i=0;i<time;i++)
+	{
+			
+	}
+	return 1;
+}
+

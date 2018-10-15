@@ -27,5 +27,12 @@ void test_TurnOffGpioCero(void){
 	TEST_ASSERT_EQUAL_HEX16(0,gpioVirtuales);
 }
 
+void test_TimeCondition(){
+	char flag;
+	int time=0xffff;
+	flag=DelayTime(time);
+	TEST_ASSERT_EQUAL(1,flag);
+}
+
 
 

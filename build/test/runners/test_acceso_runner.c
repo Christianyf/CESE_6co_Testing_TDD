@@ -38,6 +38,7 @@ extern void tearDown(void);
 extern void test_GpioOffAfterCreate(void);
 extern void test_TurnOnGpioCero(void);
 extern void test_TurnOffGpioCero(void);
+extern void test_TimeCondition();
 
 
 /*=======Suite Setup=====*/
@@ -75,6 +76,7 @@ int main(void)
   RUN_TEST(test_GpioOffAfterCreate, 10);
   RUN_TEST(test_TurnOnGpioCero, 16);
   RUN_TEST(test_TurnOffGpioCero, 23);
+  RUN_TEST(test_TimeCondition, 30);
 
   return suite_teardown(UnityEnd());
 }

@@ -12,12 +12,15 @@
 - :test: test_TurnOffGpioCero
   :line: 23
   :message: ''
+- :test: test_TimeCondition
+  :line: 30
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 3
-  :passed: 3
+  :total: 4
+  :passed: 4
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0024855169976945035
+:time: 0.002530977999413153

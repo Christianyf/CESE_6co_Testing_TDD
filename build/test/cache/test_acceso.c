@@ -64,3 +64,21 @@ void test_TurnOffGpioCero(void){
 ), (UNITY_UINT)(27), UNITY_DISPLAY_STYLE_HEX16);
 
 }
+
+
+
+void test_TimeCondition(){
+
+ char flag;
+
+ int time=0xffff;
+
+ flag=DelayTime(time);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((flag)), (
+
+((void *)0)
+
+), (UNITY_UINT)(34), UNITY_DISPLAY_STYLE_INT);
+
+}
